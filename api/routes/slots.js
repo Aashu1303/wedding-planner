@@ -3,18 +3,19 @@ import { createSlot, deleteSlot, getSlot, getSlots, updateSlot, updateSlotAvaila
 
 import { verifyAdmin } from "../utils/verifyToken.js";
 
-const router=express.Router();
+const router = express.Router();
 
-router.post("/:hallid",verifyAdmin,createSlot);
+router.post("/:hallid", verifyAdmin, createSlot);
 
-router.put("/:id",verifyAdmin,updateSlot)
-router.put("/availabilty/:id",updateSlotAvailabilty)
+router.put("/:id", verifyAdmin, updateSlot)
+router.put("/availabilty/:id", updateSlotAvailabilty)
 
-router.delete("/:id/:hallid",verifyAdmin,deleteSlot)
+router.delete("/:id/:hallid", verifyAdmin, deleteSlot)
+router.delete("/:id", verifyAdmin, deleteSlot)
 
-router.get("/:id",getSlot)
+router.get("/:id", getSlot)
 
-router.get("/",getSlots);
+router.get("/", getSlots);
 
 
 export default router
