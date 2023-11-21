@@ -15,11 +15,6 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const adminCredentials = {
-    username: "DEVX",
-    password: "DEVX",
-  };
-
   //   Handle Change Function
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -34,13 +29,13 @@ const Login = () => {
         "/auth/login",
         credentials
       );
-      if(res.data.isAdmin){
+      if (res.data.isAdmin) {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
         navigate("/");
-      }else{
-        dispatch({ type: "LOGIN_FAILURE", payload: {message:"You are not admin"} });
+      } else {
+        dispatch({ type: "LOGIN_FAILURE", payload: { message: "You are not admin" } });
       }
-      
+
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
     }
@@ -89,7 +84,6 @@ const Login = () => {
         <div className="left">
           <h1>Welcome Back!</h1>
           <p>to continue please login with your personal account information</p>
-          
         </div>
       </div>
     </div>
